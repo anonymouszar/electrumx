@@ -2931,7 +2931,6 @@ class Vestxcoin(Coin):
     PEERS = []
     SESSIONCLS = DashElectrumX
     DAEMON = daemon.DashDaemon
-    DESERIALIZER = lib_tx.Deserializer
 
     @classmethod
     def header_hash(cls, header):
