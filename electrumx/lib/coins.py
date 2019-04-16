@@ -2911,3 +2911,29 @@ class ECCoin(Coin):
         # you have to install scryp python module (pip install scrypt)
         import scrypt
         return scrypt.hash(header, header, 1024, 1, 1, 32)
+
+      
+class Vestxcoin(Coin):
+    NAME = "Vestxcoin"
+    SHORTNAME = "VESTX"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488B21E")
+    XPRV_VERBYTES = bytes.fromhex("0488ADE4")
+    P2PKH_VERBYTE = bytes.fromhex("3C")
+    P2SH_VERBYTES = [bytes.fromhex("7A")]
+    WIF_BYTE = bytes.fromhex("46")
+    GENESIS_HASH = ('0000beeb61cc43b60e855ceaad27378e90a59d6e9c54e1476406f48c5ffccda3')
+    TX_COUNT = 431808
+    TX_COUNT_HEIGHT = 321132
+    TX_PER_BLOCK = 10
+    RPC_PORT = 20001
+    REORG_LIMIT = 800
+    PEERS = []
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
+
+    @classmethod
+    def header_hash(cls, header):
+        '''Given a header return the hash.'''
+        import x16rt_hash
+        return x16rt_hash.getPoWHash(header)
