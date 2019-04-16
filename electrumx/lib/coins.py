@@ -2927,7 +2927,7 @@ class Vestxcoin(Coin):
     TX_COUNT_HEIGHT = 26167
     TX_PER_BLOCK = 2
     RPC_PORT = 20001
-    REORG_LIMIT = 100
+    REORG_LIMIT = 800
     PEERS = []
     SESSIONCLS = DashElectrumX
     DAEMON = daemon.DashDaemon
