@@ -2913,7 +2913,7 @@ class ECCoin(Coin):
         return scrypt.hash(header, header, 1024, 1, 1, 32)
 
       
-class Vestxcoin(Coin):
+class Vestxcoin(BitcoinMixin, Coin):
     NAME = "Vestxcoin"
     SHORTNAME = "VESTX"
     NET = "mainnet"
@@ -2927,10 +2927,11 @@ class Vestxcoin(Coin):
     TX_COUNT_HEIGHT = 26167
     TX_PER_BLOCK = 2
     RPC_PORT = 20001
-    REORG_LIMIT = 800
+    REORG_LIMIT = 200
     PEERS = []
-    SESSIONCLS = DashElectrumX
-    DAEMON = daemon.DashDaemon
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    SESSIONCLS = ElectrumX
+    DAEMON = daemon.Daemon
 
     @classmethod
     def header_hash(cls, header):
