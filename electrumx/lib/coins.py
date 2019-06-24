@@ -2930,8 +2930,8 @@ class Vestxcoin(BitcoinMixin, Coin):
     REORG_LIMIT = 200
     PEERS = []
     DESERIALIZER = lib_tx.DeserializerSegWit
-    SESSIONCLS = ElectrumX
-    DAEMON = daemon.Daemon
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
 
     @classmethod
     def header_hash(cls, header):
